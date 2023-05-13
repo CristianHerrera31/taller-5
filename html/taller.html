@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/estilo.css">
+    <script src="../js/utilidades.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function crearDivHijo(imagenes) {
+
+            var divHijoUno = crearElemento("div");
+            var imgHijouno = crearElemento("img");
+            imgHijouno.src = imagenes
+            imgHijouno.classList.add("imagen");
+            adicionarHijo(divHijoUno, imgHijouno);
+            adicionarHijo(divflexContenedor, divHijoUno);
+
+        }
+
+        function img(img, img2) {
+
+            var div = crearElemento("div");
+
+            var img = crearImagen(img);
+            img.classList.add("img1");
+
+            var img2 = crearImagen(img2);
+            img2.classList.add("img2");
+
+            adicionarHijo(div, img);
+            adicionarHijo(div, img2);
+            adicionarHijo(divGridContenedor, div);
+        }
+
+        function crearDivHijoDos(imagenes) {    
+
+            var divHijoDos = crearElemento("div");
+            var imgHijodos = crearElemento("img");
+            imgHijodos.src = imagenes
+            imgHijodos.classList.add("imagen");
+
+            adicionarHijo(divHijoDos, imgHijodos);
+            adicionarHijo(divGridContenedor, divHijoDos);
+
+        }
+
+        var divflexContenedor = crearElemento("div");
+        divflexContenedor.classList.add("flexContenedor");
+
+        var divGridContenedor = crearElemento("div");
+        divGridContenedor.classList.add("gridContenedor");
+
+        var formulario = crearElemento("div");
+        formulario.classList.add("formulario");
+
+        var formularioContent = crearElemento("div");
+        adicionarHijo(formulario, formularioContent);
+
+        var titulo = crearElementoConTexto("h1", "Book a Session");
+        adicionarHijo(formularioContent, titulo);
+
+        function crearinput(nombreElemento) {
+
+            var input = crearElemento("input");
+            input.placeholder = nombreElemento
+            input.classList.add("input");
+            adicionarHijo(formularioContent, input);
+
+        }
+
+        crearinput("Name");
+        crearinput("Email Address");
+
+
+        var textArea = crearElemento("textArea");
+        textArea.placeholder = "Messenger"
+        textArea.classList.add("textArea");
+        adicionarHijo(formularioContent, textArea);
+
+        var boton = crearElemento("button");
+        boton.textContent = "Send Now";
+        boton.classList.add("boton");       
+        adicionarHijo(formulario, boton);
+
+        crearDivHijo("../recursos/imagenes/Carro.jpg");
+        crearDivHijo("../recursos/imagenes/Supra MK5.jpg");
+        crearDivHijo("../recursos/imagenes/Mustang Shelby.jpg");
+        crearDivHijo("../recursos/imagenes/Jeep  Wrangler.jpg");
+
+
+        crearDivHijoDos("../recursos/imagenes/play.jpg");
+        img("../recursos/imagenes/play2.jpg", "../recursos/imagenes/play3.jpg");
+        adicionarHijo(divGridContenedor, formulario);
+
+
+
+        adicionarBody(divflexContenedor);
+        adicionarBody(divGridContenedor);
+
+
+    </script>
+</body>
+
+</html>
